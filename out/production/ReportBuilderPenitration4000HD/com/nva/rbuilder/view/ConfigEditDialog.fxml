@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="630.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nva.rbuilder.view.ConfigEditDialogController">
+   <children>
+      <SplitPane dividerPositions="0.4657762938230384" layoutX="101.0" layoutY="340.0" orientation="VERTICAL" prefHeight="422.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
+               <children>
+                  <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
+                     <children>
+                        <Label text="Issue" GridPane.rowIndex="1" />
+                        <Label text="Conference Mode" GridPane.rowIndex="2" />
+                        <Label text="Date End" GridPane.rowIndex="3" />
+                        <Label text="Login" GridPane.rowIndex="4" />
+                        <Label text="Password" GridPane.rowIndex="5" />
+                        <Label text="Jira URL" GridPane.rowIndex="6" />
+                        <Label text="Auto Authorisation Mode" GridPane.rowIndex="7" />
+                        <PasswordField fx:id="passField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="issueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="dateEndField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="loginField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="jiraURlField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <CheckBox fx:id="conferenceModeCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="autoAuthorisationModeCheckBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label text="Game's Name" />
+                        <TextField fx:id="gameNameField" GridPane.columnIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <Label layoutX="20.0" layoutY="14.0" text="Settings:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
+               <children>
+                  <HBox layoutX="258.0" layoutY="311.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <Button layoutX="258.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleSave" text="Save..." />
+                        <Button layoutX="310.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+                     </children>
+                  </HBox>
+                  <TreeTableView fx:id="treeTableView" editable="true" layoutX="31.0" layoutY="21.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TreeTableColumn fx:id="treeTableColumnSection" minWidth="-1.0" prefWidth="269.0" sortable="false" text="Section">
+                           <columns>
+                              <TreeTableColumn fx:id="treeTableColumnSectionName" minWidth="-1.0" prefWidth="173.0" sortable="false" text="name" />
+                              <TreeTableColumn fx:id="treeTableColumnSectionLabel" maxWidth="2000.0" minWidth="-1.0" prefWidth="63.0" sortable="false" text="label" />
+                           </columns></TreeTableColumn>
+                      <TreeTableColumn fx:id="treeTableColumnUnit" minWidth="-1.0" prefWidth="228.0" sortable="false" text="Unit">
+                           <columns>
+                              <TreeTableColumn fx:id="treeTableColumnUnitName" minWidth="-1.0" prefWidth="209.0" sortable="false" text="name" />
+                              <TreeTableColumn fx:id="treeTableColumnUnitLabel" maxWidth="2000.0" minWidth="-1.0" prefWidth="86.0" sortable="false" text="label" />
+                           </columns>
+                        </TreeTableColumn>
+                        <TreeTableColumn fx:id="treeTableColumnPercent" maxWidth="2000.0" minWidth="-1.0" prefWidth="126.0" sortable="false" text="Percent" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TreeTableView>
+                  <HBox layoutX="14.0" layoutY="296.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleAddSection" text="Add Section" />
+                        <Button layoutX="79.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleAddUnit" text="Add Unit" />
+                        <Button layoutX="146.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleDeleteObject" styleClass="button-del" text="Delete Object" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

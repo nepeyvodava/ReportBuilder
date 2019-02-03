@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <settings>
+        <issue>LTRYSLVCNS-2</issue>
+        <conferenceMode>false</conferenceMode>
+        <dateEnd></dateEnd>
+        <login>v.nepeyvoda</login>
+        <pass></pass>
+        <jiraURL>https://jira-srv.octavian.ru</jiraURL>
+        <autoAuthorisationMode>true</autoAuthorisationMode>
+    </settings>
+    <report gameName="SilverCoins">
+        <section name="Base Game" label="BG">
+            <unit name="Logic" label="L">100</unit>
+            <unit name="Graphics" label="G">50</unit>
+            <unit name="Audio" label="A">50</unit>
+            <unit name="Text Resources" label="TR">50</unit>
+            <unit name="Info" label="I">100</unit>
+            <unit name="Prize Structure" label="PS">50</unit>
+            <unit name="Specification" label="S">100</unit>
+        </section>
+    </report>
+</root>

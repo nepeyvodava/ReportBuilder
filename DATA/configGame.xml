@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <settings>
+        <issue>GOXBKOFRA-2</issue>
+        <conferenceMode>false</conferenceMode>
+        <dateEnd> </dateEnd>
+        <login>v.nepeyvoda</login>
+        <pass></pass>
+        <jiraURL>https://jira-srv.octavian.ru</jiraURL>
+        <autoAuthorisationMode>true</autoAuthorisationMode>
+    </settings>
+    <report gameName="GOX QueenCleopatra">
+        <section name="BaseGame" label="BG">
+            <unit name="Logic" label="L">21</unit>
+            <unit name="Lines/Bet" label="LB">10</unit>
+            <unit name="Demo Combinations" label="DC">-</unit>
+            <unit name="Buttons" label="B">-</unit>
+            <unit name="Indicators/Displays" label="ID">30</unit>
+            <unit name="Game's Settings (audit menu)" label="GS">-</unit>
+            <unit name="Animation/Sound/Graphics" label="ASG">0</unit>
+            <unit name="Restore" label="R">-</unit>
+            <unit name="Game history" label="GH">-</unit>
+            <unit name="AutoPlay" label="AP">50</unit>
+            <unit name="BigWin" label="BW">50</unit>
+            <unit name="Illumination Control" label="IC">-</unit>
+            <unit name="PlayAway" label="PA">-</unit>
+            <unit name="Statistics (audit menu)" label="S">-</unit>
+            <unit name="System Error" label="SE">-</unit>
+            <unit name="Transactions" label="T">-</unit>
+        </section>
+        <section name="Screens, windows" label="SW">
+            <unit name="Table wins" label="TW">0</unit>
+            <unit name="Video demonstration" label="VD">50</unit>
+            <unit name="Help screens" label="HS">90</unit>
+        </section>
+        <section name="Free Games" label="FG">
+            <unit name="Logic" label="L">50</unit>
+            <unit name="Indicators/Displays" label="ID">0</unit>
+            <unit name="Animation/Sound/Graphics" label="ASG">30</unit>
+            <unit name="Restore" label="R">-</unit>
+            <unit name="Game history" label="GH">-</unit>
+            <unit name="AutoPlay" label="AP">10</unit>
+            <unit name="Risk mode" label="RM">50</unit>
+            <unit name="System Error" label="SE">-</unit>
+            <unit name="Buttons" label="B">-</unit>
+            <unit name="PlayAway" label="PA">-</unit>
+            <unit name="Transactions" label="T">-</unit>
+        </section>
+        <section name="Feature, Wild" label="FW">
+            <unit name="Logic" label="L">0</unit>
+            <unit name="Indicators/Displays" label="ID">0</unit>
+            <unit name="Animation/Sound/Graphics" label="ASG">0</unit>
+            <unit name="Restore" label="R">-</unit>
+            <unit name="PlayAway" label="PA">-</unit>
+            <unit name="AutoPlay" label="AP">0</unit>
+            <unit name="Risk Mode" label="RM">0</unit>
+            <unit name="System Error" label="SE">-</unit>
+            <unit name="Transactions" label="T">-</unit>
+        </section>
+        <section name="Risk Mode" label="RM">
+            <unit name="Logic" label="L">10</unit>
+            <unit name="Indicators/Displays" label="ID">5</unit>
+            <unit name="Animation/Sound/Graphics" label="ASG">0</unit>
+            <unit name="Restore" label="R">-</unit>
+            <unit name="Game History" label="GH">-</unit>
+            <unit name="System Error" label="SE">-</unit>
+            <unit name="Buttons" label="B">-</unit>
+            <unit name="Risk Mode Settings" label="RMS">50</unit>
+            <unit name="PlayAway" label="PA">-</unit>
+            <unit name="Transactions" label="T">-</unit>
+        </section>
+        <section name="Timers" label="T">
+            <unit name="Reels Spinning Type/Time" label="RST">0</unit>
+            <unit name="Collect" label="C">-</unit>
+            <unit name="Animation of Win Combination" label="AWC">0</unit>
+            <unit name="Options menu" label="OM">-</unit>
+        </section>
+        <section name="Limits" label="L">
+            <unit name="Max Win (credit limit)" label="MW">-</unit>
+            <unit name="Max Credit" label="MC">-</unit>
+        </section>
+        <section name="Documentation" label="D">
+            <unit name="Correctness" label="C">100</unit>
+            <unit name="Messages/Helps" label="MH">100</unit>
+        </section>
+    </report>
+</root>
