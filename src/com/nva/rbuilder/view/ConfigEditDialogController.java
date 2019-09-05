@@ -1,9 +1,7 @@
 package com.nva.rbuilder.view;
 
-import com.nva.rbuilder.MainApp;
 import com.nva.rbuilder.model.ItemOfTree;
 import com.nva.rbuilder.model.ReportConfig;
-import com.nva.rbuilder.utils.ConfigsList;
 import com.nva.rbuilder.utils.CustomTextFieldTreeTableCell;
 import com.nva.rbuilder.utils.TreeTableUtil;
 import com.nva.rbuilder.utils.WriteConfig;
@@ -11,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.util.List;
 import java.util.Optional;
 
 public class ConfigEditDialogController {
@@ -132,19 +129,9 @@ public class ConfigEditDialogController {
             //записываем изменения в объект config
             TreeTableUtil.saveChangesToConfig(treeTableView.getRoot(), config);
 
-            /**
-             * если конфиг новый, то задаем ему имя
-             */
-            if(config.configName().get() == null){
-                String newConfigName = config.getReport().getGameName() + ".xml";
-                //если конфиг с таким именем уже есть, прибавляем к названию "_"
-                List<String> configsList = ConfigsList.get(MainApp.CONFIGS_DIR);
-                if(configsList.contains(newConfigName)){newConfigName = "_" + newConfigName;}
-                config.setName(newConfigName);}
-
             //TODO
             //записываем конфиг в файл
-            WriteConfig.write(config,config.configName().get());
+            WriteConfig.write(config);
 
             saveClicked = true;
             dialogStage.close();

@@ -66,7 +66,8 @@ public class ReportThreadData {
                     gameName,
                     "Ticket",
                     "Comments",
-                    "Assignee"};
+                    "Assignee",
+                    "Reporter"};
         }else{
             columName = new String[]{
                     gameName,

@@ -16,7 +16,7 @@ public class RootLayoutController {
     private void handleAbout() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("ReportBuilder");
-        alert.setHeaderText("ReportBuilder v1.0.0");
+        alert.setHeaderText("ReportBuilder v1.3.0");
         alert.setContentText("Author: [N:V:A]\n" +
                 "QA Manager: Dimka\n" +
                 "Website: https://github.com/nepeyvodava");

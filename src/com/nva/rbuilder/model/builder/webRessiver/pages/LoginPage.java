@@ -28,51 +28,45 @@ public class LoginPage extends PageBase {
     @FindBy (id = "captchaimg")
     private static WebElement captchaImg;
 
-    private String captchaText;
-    private String beforeTitle;
-    private String afterTitle;
-
     public void login() {
         Assets.println("Login to server...", this.app.getReportThreadData());
         driver.get(this.app.getReportThreadData().getJiraURL() + "/secure/Dashboard.jspa");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
-        beforeTitle = driver.getTitle();
+        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.id("login")));
+
         //login
         loginField.clear();
         if(this.app.getReportThreadData().isAutoAuthorisationMode()){
             loginField.sendKeys(Assets.LOGIN);
         }else {loginField.sendKeys(this.app.getReportThreadData().getLogin());}
+
         //password
         passwordField.clear();
         if(this.app.getReportThreadData().isAutoAuthorisationMode()){
             passwordField.sendKeys(Assets.PASSWORD);
         }else{passwordField.sendKeys(this.app.getReportThreadData().getPassword());}
+
         //submit
         submitForm();
     }
 
     private void submitForm() {
         btnSubmit.submit();
-        try {
-            wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.id("login-form-username")));
-        }catch (TimeoutException ex){
-            Assets.println("Authorisation Filed!", this.app.getReportThreadData());
-            app.getReportThreadData().addError("Authorisation Filed!");}
 
-        afterTitle = driver.getTitle();
-        if(!afterTitle.equals(beforeTitle)){
+        try {
+            wait2.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-menu")));
             Assets.println("Authorisation Done!", this.app.getReportThreadData());
             this.app.getReportThreadData().setAutorithationStatus(true);
-            return;}
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("usernameerror")));
-        if(beforeTitle.equals(afterTitle) && errorMesseage.getText().equals(
-                "Sorry, your username and password are incorrect - please try again.")){
-            Assets.println(errorMesseage.getText(), this.app.getReportThreadData());
-            app.getReportThreadData().addError("your username and password are incorrect");}
-        if(beforeTitle.equals(afterTitle) && errorMesseage.getText().equals(
-                "Sorry, your userid is required to answer a CAPTCHA question correctly.")){
-            Assets.println(errorMesseage.getText(), this.app.getReportThreadData());
-            app.getReportThreadData().addError("your username and password are incorrect");}
+            return;
+        }catch (TimeoutException ex){
+            try {
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("usernameerror")));
+                Assets.println(errorMesseage.getText(), this.app.getReportThreadData());
+                app.getReportThreadData().addError(errorMesseage.getText());
+            } catch (TimeoutException exx) {
+                Assets.println("Authorisation Filed!", this.app.getReportThreadData());
+                app.getReportThreadData().addError("Authorisation Filed!");
+            }
+        }
     }
 
 }

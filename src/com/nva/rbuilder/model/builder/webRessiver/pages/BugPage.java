@@ -19,12 +19,16 @@ public class BugPage extends PageBase {
     private WebElement assigneeUser;
     @FindBy(id = "reporter-val")
     private  WebElement reporterUser;
+    @FindBy(id = "type-val")
+    private  WebElement typeIssue;
     @FindBy(xpath = "//span[contains(@id,'labels-')]")
     private WebElement labelNoneValue;
     @FindBy(xpath = "//ul[contains(@id,'labels-')]/li/a/span")
     private WebElement labelValue;
     @FindBy(id = "description-val")
     private WebElement descriptionBlock;
+    @FindBy(id = "aui-uid-1")
+    private WebElement textButton;
 
     private String bugCode;
 
@@ -72,14 +76,41 @@ public class BugPage extends PageBase {
 
     }
 
+    public String getReporterUser(){
+
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("reporter-val")));
+            return reporterUser.getText();
+        }catch (TimeoutException ex){
+            Assets.println("In Issue " + bugCode + " ReporterUser - NOT FOUND!", this.app.getReportThreadData());
+            return "EmptyReporterUser";
+        }
+
+    }
+
+    public String getTypeIssue(){
+
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("type-val")));
+            return typeIssue.getText();
+        }catch (TimeoutException ex){
+            Assets.println("In Issue " + bugCode + " Type - NOT FOUND!", this.app.getReportThreadData());
+            return " ";
+        }
+
+    }
+
     public String getDescription(){
         String result;
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("description-val")));
+//            descriptionBlock.findElement(By.xpath("./span")).click();
             driver.findElement(By.id("description-val")).click();
         }catch (Exception ex){}
         try {
-            descriptionBlock.findElement(By.xpath("./form/div/div/div/div/div/ul/li/a[contains(text(),'Text')]")).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("aui-uid-1")));
+//            descriptionBlock.findElement(By.xpath("./form/div/div/div/div/div/ul/li/a[contains(text(),'Text')]")).click();
+            textButton.click();
         }catch (Exception e){}
         try {
             result = descriptionBlock.findElement(By.xpath("./form/div/div/div/div/div/textarea")).getText();

@@ -19,6 +19,7 @@ public class ConfigLoader {
     }
 
     public void load() {
+//        getDOM(filePath);
         Assets.print("Config Loading...", reportThreadData);
         //get Settings
         reportThreadData.setLogin(config.getSettings().getLogin());

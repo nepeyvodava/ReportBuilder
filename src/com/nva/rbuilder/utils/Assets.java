@@ -142,6 +142,9 @@ public class Assets {
             "   \t<section name=\"Screens, windows\" label=\"SW\">\n" +
             "\t\t<unit name=\"Table wins\" label=\"TW\">0</unit>\n" +
             "\t\t<unit name=\"Help screens\" label=\"HS\">0</unit>\n" +
+            "\t\t<unit name=\"Demo Menu\" label=\"DM\">0</unit>\n" +
+            "\t\t<unit name=\"3-rd screen\" label=\"SS\">0</unit>\n" +
+            "\t\t<unit name=\"Explorer\" label=\"E\">0</unit>\n" +
             "\t</section>\n" +
             "\n" +
             "\t<section name=\"Free Games\" label=\"FG\">\n" +

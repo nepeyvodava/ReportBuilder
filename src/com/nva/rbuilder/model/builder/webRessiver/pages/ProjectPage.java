@@ -55,6 +55,8 @@ public class ProjectPage extends PageBase {
             //open page and get label and username
             bugPage.openBugPage(bugCode);
             String assigneeUser = bugPage.getAssigneeUser();
+            String reporterUser = bugPage.getReporterUser();
+            String typeIssue = bugPage.getTypeIssue();
             String label = bugPage.getLabel();
             String oldLabel = label;
             //progress add
@@ -96,13 +98,18 @@ public class ProjectPage extends PageBase {
                  if(!this.app.getReportThreadData().isConferenceMode()) unitListData.add("");
 
                  //add ticket
-                 unitListData.add(bugCode);
-
+                 if(this.app.getReportThreadData().isConferenceMode()) {
+                     unitListData.add("[" + typeIssue + "] \n" + bugCode);
+                 } else {
+                     unitListData.add(bugCode);
+                 }
                  //add comments
                  if(this.app.getReportThreadData().isConferenceMode()){unitListData.add("• " + bugName + bugPage.getDescription());
                  }else {unitListData.add(bugName);}
                  //add assigned to
                  unitListData.add(assigneeUser);
+                 //add reporter
+                 if(this.app.getReportThreadData().isConferenceMode()){ unitListData.add(reporterUser); }
                  //add date end value
                  if(!this.app.getReportThreadData().isConferenceMode()) unitListData.add("");
 
@@ -112,11 +119,7 @@ public class ProjectPage extends PageBase {
              }
         }
         // put section's data
-        if(!unitListNames.isEmpty()){
-            this.app.getReportThreadData()
-                    .getSectionMap()
-                    .put(otherSectionName + Assets.SPECIALSYMBOL + otherSectionName,unitListNames);}
-
+        if(!unitListNames.isEmpty()){this.app.getReportThreadData().getSectionMap().put(otherSectionName + Assets.SPECIALSYMBOL + otherSectionName,unitListNames);}
         Assets.printrep("Get Bugs Data...Done!", this.app.getReportThreadData());
         Assets.print("\n", this.app.getReportThreadData());
     }
@@ -133,7 +136,7 @@ public class ProjectPage extends PageBase {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("show-more-links-link")));
             showMoreLinksButton.click();
         }catch (TimeoutException ex){
-            //TODO
+//            Assets.println("Malovasto bagov:)");
         }
 
         List<WebElement> bugs = linksBlock.findElements(By.xpath("./div/div/dl/dd[contains(@id,'internal')]"));

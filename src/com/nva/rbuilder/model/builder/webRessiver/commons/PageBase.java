@@ -16,8 +16,8 @@ public class PageBase {
     public PageBase(AppManager app){
         this.app = app;
         this.driver = app.getDriver();
-        this.wait = new WebDriverWait(this.driver, 2);
-        wait2 = new WebDriverWait(driver, 3).ignoring(ElementNotVisibleException.class);
+        this.wait = new WebDriverWait(this.driver, 3);
+        wait2 = new WebDriverWait(driver, 10).ignoring(ElementNotVisibleException.class);
         PageFactory.initElements(driver,this);
     }
 
